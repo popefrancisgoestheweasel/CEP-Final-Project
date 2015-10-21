@@ -1,0 +1,29 @@
+.navbar-header{
+    height: 75px;
+}
+
+.navbar-brand{
+    margin-top: 12px;
+    font-size: 50px;
+}
+
+.dropdown-toggle{
+    margin-top: 12px;
+    font-size: 20px;
+    background-color: #CCC;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}
+
+.dropdown-item{
+    font-size: 15px;
+}
+
+
+.container-fluid{
+    background-color: #CCC;
+}
+
+.main{
+    margin-left: 15px;
+}

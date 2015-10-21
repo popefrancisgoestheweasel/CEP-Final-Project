@@ -1,0 +1,23 @@
+{%extends 'motivatin/base.html'%}
+{% load crispy_forms_tags %}
+{%block title%}
+{%if object%}
+        Update Goal
+{%else%}
+        Create a New Goal
+{%endif%}
+{%endblock%}
+{%block content%}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+    {%if object%}
+        <h1>Update Task: {{object.title}}</h1>
+    {%else%}
+        <h1>Create a New Goal</h1>
+    {%endif%}
+    {% crispy form %}
+	</div>
+     </div>
+</div>
+{%endblock%}

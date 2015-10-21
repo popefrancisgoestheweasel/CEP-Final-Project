@@ -1,0 +1,5 @@
+{% extends 'motivatin/base.html' %}
+{% block title %} Profile {% endblock %}
+{% block content %}
+<h1 class='title'>{% if user.username %} {{user.username}} {% endif %}</h1>
+{% endblock %}

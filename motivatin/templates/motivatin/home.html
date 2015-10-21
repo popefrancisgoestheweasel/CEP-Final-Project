@@ -1,0 +1,15 @@
+{% extends 'motivatin/base.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+
+{%if user.is_authenticated%}
+<h1>Welcome.</h1>
+
+{%else%}
+<h1 class='title'>Motivate yourself.</h1>
+<h2 class='detail'>Sign up for a free account now and find motivation like never before.</h2>
+<h2 class='detail'><a style="color: #000" href='/accounts/register'>Register here.</a></h2>
+{%endif%}
+
+
+{% endblock %}

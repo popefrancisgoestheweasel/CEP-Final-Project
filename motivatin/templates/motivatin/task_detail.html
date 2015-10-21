@@ -1,0 +1,9 @@
+{% extends 'motivatin/base.html' %}
+{% block title %} {% if task.title %} {{task.title}} {% endif %} {% endblock %}
+{% block content %}
+<h1 class='title'>{% if task.title %} {{task.title}} {% endif %}</h1>
+<p class='description'>{% if task.description %} Description: {{task.description}} {% endif %}</p>
+<!--<p class='description'>Chain length: {{task.chain}}</p>-->
+<div class="chain">Chain length: {{task.chain}} days</div>
+<button onClick="{{task.tfios}}{{task.falsesave}}" id="add" name="nickjonas">I did it today!</button>
+{% endblock %}

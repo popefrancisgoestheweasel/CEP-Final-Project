@@ -1,0 +1,67 @@
+{% extends 'motivatin/base.html' %}
+{% load staticfiles %}
+    {%block title%}
+      Dashboard
+    {%endblock%}
+{% block content %}
+{%if user.is_authenticated%}
+{% if object_list  %}
+
+<!-- CAROUSEL -->
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox"  style="height: 700px">
+    <div class="item active">
+      <h2 style="text-align: center">View your goals. Find your motivation.</h2>
+    </div>
+
+    {% for task in object_list  %}
+
+    <div class="item">
+        <h2 style="text-align: center"><a style="color: #000" href={%url 'task_detail' task.id %}>{{task.title}}</a></h2>
+        <p style="text-align: center" class='description'>{% if task.description %} Description: {{task.description}} {% endif %}</p>
+        <p style="text-align: center" class='description'>Chain length: {{task.chain}}</p>
+        <p style="text-align: center" class='edit'> <a style="color: #000" href={%url 'task_update' task.id %}>Edit</a></p>
+        <button style="position: absolute; margin-left: 47%; width: 6%" onClick="task.add_chain" id="add" name="nickjonas">I did it today!</button>
+        {% with ''|center:task.chain as range %}
+          <div style="position: absolute; margin-left: 49%; margin-right: 49%; margin-top: 5%">
+          {% for _ in range %}
+            <img style="position: block; width: 75%; z-index: 1" src="{% static 'motivatin/media/marble.png' %}">
+          {% endfor %}
+          </div>
+        {% endwith %}
+        <img style="position: absolute; z-index: -1; width: 12%; margin-left: 44%; margin-right: 44%; margin-bottom: 5%; margin-top: 1%" src="{% static 'motivatin/media/tin.png' %}">
+        
+        
+        
+    </div>
+
+    
+    {%endfor%}
+    
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+{%else%}
+
+<h1>You don't have any goals yet. Why not <a style="color: #000" href='/add'>add one</a> now?</h1>
+
+{%endif%}
+
+{%else%}
+<h1>Register for a free account to get access to a personal dashboard and much more!</h1>
+{%endif%}
+{% endblock %}
