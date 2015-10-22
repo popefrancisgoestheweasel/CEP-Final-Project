@@ -6,7 +6,7 @@ from crispy_forms.layout import Submit, Layout, Field
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        exclude  = ('user', 'chain', 'okayokay',)
+        exclude  = ('user', 'chain', 'chainminusone', 'okayokay',)
     
     helper = FormHelper()
     helper.form_method = 'POST'
